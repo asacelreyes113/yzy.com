@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completa tu Compra</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Completa tu Compra</h1>
+    </header>
+    <main>
+        <form class="purchase-form" action="enviar_correo.php" method="POST" onsubmit="return mostrarMensaje()">
+            <label for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" required>
+
+            <label for="talla">Talla:</label>
+            <select id="talla" name="talla" required>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+            </select>
+
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo" readonly>
+
+            <label for="precio">Precio:</label>
+            <input type="text" id="precio" name="precio" readonly>
+
+            <label for="tarjeta">Número de Tarjeta:</label>
+            <input type="text" id="tarjeta" name="tarjeta" required>
+
+            <button type="submit">Confirmar Compra</button>
+        </form>
+      <a href="index.html" class="index.html">Volver</a>    </main>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('modelo').value = urlParams.get('modelo');
+        document.getElementById('precio').value = urlParams.get('precio');
+
+            function mostrarMensaje() {
+            alert('¡Compra realizada!');
+            window.location.href = 'yzy.html';
+            return true;
+        }
+    </script>
+</body>
+</html>
